@@ -1,8 +1,15 @@
 #include "ALCamera.h"
+#include "ALGraphics.h"
 
 int main()
 {
-	Ammolite::Camera * pCamera = new Ammolite::Camera();
+	Ammolite::Graphics::Init(Ammolite::Graphics::Engine::OPENGL);
+	Ammolite::Graphics::OpenWindow(800, 600, "AmmoliteTest");
 
-	delete pCamera;
+	Ammolite::Camera * pCamera = Ammolite::Camera::CreateProjective();
+
+	Ammolite::Graphics::StartRenderLoop();
+
+	pCamera->Delete();
+	pCamera = NULL;
 }
